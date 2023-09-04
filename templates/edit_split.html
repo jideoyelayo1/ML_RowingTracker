@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Rowing Split</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            margin-top: 50px;
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input[type="date"],
+        input[type="number"],
+        input[type="time"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Rowing Split</h2>
+        <form method="POST">
+            <input type="hidden" name="entry_id" value="{{ entry_id }}">
+            
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" value="{{ date }}" required>
+
+            <label for="distance">Distance (meters):</label>
+            <input type="number" id="distance" name="distance" value="{{ distance }}" min="0" step="1" required>
+
+            <label for="time">Time (HH:mm):</label>
+            <input type="time" id="time" name="time" value="{{ time }}" required>
+
+            <button type="submit">Update Split</button>
+        </form>
+    </div>
+    <a href="/">Back</a>
+</body>
+</html>

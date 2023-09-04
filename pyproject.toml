@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "rowingtracker"
+version = "1.0.1"
+description = "A rowing tracker for the rowing machine at the gym. it uses firebase and ML to help improve your rowing."
+authors = ["Jide Oyelayo <JideOyelayo1@Gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.11.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

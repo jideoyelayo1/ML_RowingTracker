@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicted Speed</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            margin-top: 40px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+        p {
+            color: #555;
+            font-size: 18px;
+            margin: 10px 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+            height: 300px; /* Increased height to accommodate the boat */
+        }
+        .boat-container {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1; /* Ensure the boat is behind the container */
+        }
+        .boat {
+            width: 100px;
+            height: 100px;
+            background-color: #0066cc;
+            border-radius: 50%;
+            position: absolute; /* Changed to absolute positioning */
+            bottom: 0;
+            left: 50%; /* Center the boat horizontally */
+            transform: translateX(-50%); /* Center the boat horizontally */
+            animation: rowBoat 4s linear infinite;
+        }
+        .paddle-left, .paddle-right {
+            width: 10px;
+            height: 50px;
+            background-color: #fff;
+            position: absolute;
+            bottom: 0;
+            transform-origin: center bottom;
+            animation: paddle 1s ease-in-out infinite;
+        }
+        .paddle-left {
+            left: 40px;
+            transform: translateX(-50%);
+        }
+        .paddle-right {
+            right: 40px;
+            transform: translateX(50%);
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes rowBoat {
+            0% {
+                transform: translateX(-50%);
+            }
+            25% {
+                transform: translateX(-25%);
+            }
+            50% {
+                transform: translateX(-50%);
+            }
+            75% {
+                transform: translateX(-75%);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        @keyframes paddle {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(20deg);
+            }
+            75% {
+                transform: rotate(-20deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>Your next target Speed is</h1>
+            <h1>{{ target }}m/s</h1>
+        </div>
+        <div>
+            <p>According to our data about you it looks like you're gonna do {{ speed }}m/s, we think you should aim for {{ target }}m/s as an average speed this session. 
+                This is a  {{ percent_push }}% increase but we believe in you!
+                <br>Good luck!
+                  We hope you reach your goal!
+                </p>
+                <br>
+                <a href="/">Back to Dashboard</a>
+                <br><br>
+        </div>
+    </div>
+    <div class="boat-container">
+        <div class="boat">
+            <div class="paddle-left"></div>
+            <div class="paddle-right"></div>
+        </div>
+    </div>
+</body>
+</html>
